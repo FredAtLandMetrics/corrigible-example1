@@ -1,0 +1,26 @@
+parameters:
+    cert_state: Virginia
+    cert_locality: Fort Defiance
+    cert_organization: Landmetrics
+    cert_common_name: bitdaddy.com
+    cert_expiry_in_days: 3650
+    cert_output_key_path: /etc/ssl/certs/postfix.key
+    cert_output_cert_path: /etc/ssl/certs/postfix.cert
+  
+tasks:
+    - files:
+        - source: files/postfix/main.cf
+            destination: /etc/postfix/main.cf
+        - source: files/postfix/master.cf
+            destination: /etc/postfix/master.cf
+        - source: files/postfix/mysql_virtual_alias_maps.cf
+            destination: /etc/postfix/mysql_virtual_alias_maps.cf
+        - source: files/postfix/mysql_virtual_domains_maps.cf
+            destination: /etc/postfix/mysql_virtual_domains_maps.cf
+        - source: files/postfix/mysql_virtual_mailbox_limit_maps.cf
+            destination: /etc/postfix/mysql_virtual_mailbox_limit_maps.cf
+        - source: files/postfix/mysql_virtual_mailbox_maps.cf
+            destination: /etc/postfix/mysql_virtual_mailbox_maps.cf
+            
+    - plans:
+        - plan: create_open_ssl_cert

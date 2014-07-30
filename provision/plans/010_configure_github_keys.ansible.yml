@@ -1,0 +1,12 @@
+# get rid of annoying github complaint about ssh keys
+# ------------------------------------------------------------------------------
+- hosts: all
+  user: {{ rootuser }}
+  sudo: yes
+  tasks:
+    - name: copy github key grabber script
+      copy: src=files/typ/github-keygrabber.sh dest=/tmp/github-keygrabber.sh mode=0755
+    - name: run github key grabber script
+      shell: /tmp/github-keygrabber.sh
+    - name: remove the github keygrabber script
+      file: path=/tmp/github-keygrabber.sh state=absent

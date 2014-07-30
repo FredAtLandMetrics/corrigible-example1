@@ -1,0 +1,6 @@
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    - name: uninstall misc packages
+      apt: state=absent pkg={{ misc_apt_uninstall }}

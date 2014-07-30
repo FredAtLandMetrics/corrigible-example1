@@ -1,0 +1,7 @@
+# PACKAGES
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    - name: remove unneeded packages
+      apt: update_cache=yes

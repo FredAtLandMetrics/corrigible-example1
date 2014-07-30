@@ -1,0 +1,5 @@
+parameters:
+    misc_apt_install: gosa,gosa-plugin-mail,gosa-plugin-ldapmanager
+
+plans:
+  - plan: install_misc_packages

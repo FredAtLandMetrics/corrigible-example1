@@ -1,0 +1,7 @@
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    # from a tip here: http://serialized.net/2013/04/simply-generating-self-signed-ssl-certs-with-ansible/
+    - name: create self-signed SSL cert
+      command: openssl req -new -nodes -x509 -subj "/C=US/ST={{ cert_state }}/L={{ cert_locality }}/O={{ cert_organization }}/CN={{ cert_common_name }}" -days {{ cert_expiry_in_days }} -keyout {{ cert_output_key_path }} -out {{ cert_output_cert_path }} -extensions v3_ca creates={{ cert_output_cert_path }}

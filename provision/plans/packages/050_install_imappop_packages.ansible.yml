@@ -1,0 +1,6 @@
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    - name: install smtp-related packages
+      apt: state=present pkg=dovecot-common,dovecot-imapd,dovecot-pop3d,sasl2-bin

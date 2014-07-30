@@ -1,0 +1,10 @@
+# CONFIG FIREWALL
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  
+  tasks:
+    - name: remove the src dir if it exists
+      shell: ( [ ! -d /var/www/postfixadmin-2.3.6 ] || rm -rf /var/www/postfixadmin-2.3.6 )
+    - name: uncompress tar ball
+      shell: ( cd /var/www; tar xzf /tmp/bitdaddy-downloads/postfixadmin-2.3.6.tar.gz )

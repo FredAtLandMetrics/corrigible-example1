@@ -1,0 +1,9 @@
+parameters:
+    mysql_root_password: 'default_password'
+    
+plans:
+    - plan: install_mysql_packages
+      run_selectors:
+          exclude: quick_reinstall
+    - plan: reset_mysql_root_password
+    

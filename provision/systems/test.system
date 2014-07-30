@@ -1,0 +1,27 @@
+hosts:
+    - hostname: 'mclovin'
+      ip_address: 192.168.0.230
+
+parameters:
+    rootuser: root
+    sudouser: mcadmin
+    unprivuser: mcslummin
+    mysql_root_password: 'passverdin1@cc'
+    misc_apt_install: git,openssl
+    misc_apt_uninstall: apache2
+    
+plans:
+
+    # packages
+    - plan: install_misc_packages
+      run_selectors:
+          exclude: quick_reinstall
+          
+    # configure system
+    - plan: configure_github_keys
+    - plan: create_download_directory
+    - plan: create_root_web_directory
+
+    - plan: install_gosa
+
+

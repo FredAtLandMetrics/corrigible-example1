@@ -1,0 +1,10 @@
+plans:
+    - plan: download_postfix_admin_tarball
+    - plan: uncompress_postfix_admin_tarball
+    - files:
+        - source: files/postfixadmin/config.inc.php
+          destination: /var/www/postfixadmin-2.3.6/config.inc.php
+          order: 999
+        - source: files/postfixadmin/dbconfig.inc.php
+          destination: /var/www/postfixadmin-2.3.6/dbconfig.inc.php
+          order: 999

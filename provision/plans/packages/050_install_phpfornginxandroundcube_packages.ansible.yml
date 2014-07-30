@@ -1,0 +1,6 @@
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    - name: install smtp-related packages
+      apt: state=present pkg=php5-cli,php5-fpm,dbconfig-common,wwwconfig-common,php5-cgi,php5-imap,php5-mysql,libc-client2007e,mlock

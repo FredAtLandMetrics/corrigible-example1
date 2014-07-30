@@ -1,0 +1,8 @@
+# CONFIG FIREWALL
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  
+  tasks:
+    - name: download postfixadmin tarball
+      shell: ( cd /tmp/bitdaddy-downloads; wget http://downloads.sourceforge.net/project/postfixadmin/postfixadmin/postfixadmin-2.3.6/postfixadmin-2.3.6.tar.gz ) creates=/tmp/bitdaddy-downloads/postfixadmin-2.3.6.tar.gz

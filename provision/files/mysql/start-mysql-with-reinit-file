@@ -1,0 +1,4 @@
+#!/bin/bash
+
+nohup mysqld_safe --init-file=/var/lib/mysql/initfiles/reinit-mysql >/dev/null 2>&1 &
+sleep 4

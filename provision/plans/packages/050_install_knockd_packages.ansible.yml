@@ -1,0 +1,6 @@
+- hosts: all
+  user: {{ sudouser }}
+  sudo: True
+  tasks:
+    - name: install knockd-related packages
+      apt: state=present pkg=knockd
