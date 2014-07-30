@@ -10,7 +10,7 @@ To try it, you'll need [corrigible](https://github.com/FredAtLandMetrics/corrigi
 * an user named *mclovin* **who has password-less sudo** with your ssh-key in its authorized_keys file
 * a user named *mcslummin*  with your ssh-key in its authorized_keys file
 
-Once that's true, just run the *provision.sh* script in the bin directory and, to provision the machine again without calling the install_packages plan, run the *quick-provision.sh* script. You'll want to take a look at the contents of those scripts as well (they're pretty simple and easy to follow).
+Once that's true, edit the hosts section of the *provision/systems/test.system* file to point at your host and just run the *provision.sh* script in the bin directory. To provision the machine again without calling the install_packages plan, run the *quick-provision.sh* script. You'll should take a look at the contents of those scripts as well (they're pretty simple and easy to follow).
 
 The results are going to be a bit underwhelming at the moment. The project that this is based on is unfinished and this repository is mostly intended to demonstrate how corrigible works.
 
